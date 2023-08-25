@@ -1,0 +1,33 @@
+$black: #000000; // just black color
+$white: #FFFFFF; // just white color
+$gray: #9E9E9E; // just gray color
+$backLight: #9D8053; // for light background
+$backDark: #333333; // for dark background
+$transparent: #000000; // example for transparent 70%
+@mixin breackpoint($point) {
+    @if $point==xxl {
+      @media (max-width: 1600px) {
+        @content;
+      }
+    } @else if $point==ms {
+      @media (max-width: 1200px) {
+        @content;
+      }
+    } @else if $point==md {
+      @media (max-width: 997px) {
+        @content;
+      }
+    } @else if $point==sm {
+      @media (max-width: 776px) {
+        @content;
+      }
+    } @else if $point==xm {
+      @media (max-width: 600px) {
+        @content;
+      }
+    } @else if $point==xs {
+      @media (max-width: 380px) {
+        @content;
+      }
+    }
+  }

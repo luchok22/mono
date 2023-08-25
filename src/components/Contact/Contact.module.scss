@@ -1,0 +1,92 @@
+@import "../../styles/globalVariables.scss";
+.contact {
+  .contact__wrapper {
+    display: flex;
+    align-items: stretch;
+    .contact__form {
+      background: $backDark;
+      padding: 60px 80px 60px 80px;
+      display: flex;
+      max-height: 100%;
+      max-width: 100%;
+      flex-direction: column;
+      gap: 30px;
+      .error{
+        font-size: 15px;
+          font-weight: 500;
+          font-family: Montserrat, sans-serif;
+          line-height: 29.26px;
+          color: rgb(243, 65, 65);
+      }
+      .successMessage {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        z-index: 999;
+        transform: translate(-50%, -50%);
+        background-color: $backDark; /* Прозрачный белый цвет */
+        padding: 85px 90px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Тень */
+        text-align: center;
+        .closeButton {
+          position: absolute;
+          top: 10px;
+          color: $white;
+          right: 10px;
+          font-size: 20px;
+          background: none;
+          border: none;
+          border-radius: 40px;
+          border: 1px solid $white;
+          padding: 0px 5px;
+          cursor: pointer;
+        }
+        h1 {
+          font-size: 24px;
+          font-weight: 500;
+          font-family: Montserrat, sans-serif;
+          line-height: 29.26px;
+          color: $white;
+        }
+        p {
+          margin-top: 5px;
+          color: $white;
+          font-size: 18px;
+          font-weight: 500;
+          font-family: Montserrat, sans-serif;
+          line-height: 21.94px;
+        }
+      }
+      .form__title {
+        p {
+          font-size: 18px;
+          font-weight: 500;
+          color: $white;
+          font-family: Montserrat, sans-serif;
+          line-height: 21.94px;
+        }
+      }
+      .form__sending {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        input {
+          padding: 22px 260px 22px 30px;
+          background: #d9d9d9;
+          border: none;
+          color: $backDark;
+        }
+      }
+      .form__btn {
+        margin-top: 15px;
+        text-align: -webkit-right;
+      }
+    }
+    .contact__background {
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+@import "../../styles/globalVariables.scss";
+.main {
+  background-image: url(../../assets/Main/mainBack.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  .main__wrapper {
+    padding-top: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    .main__text {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+        .line{
+            height: 1px;
+            background: $white;
+            width: 60%;
+        }
+      h1 {
+        font-family: Montserrat, sans-serif;
+        font-weight: 600;
+        font-size: 50px;
+        line-height: 60.95px;
+        color: $white;
+      }
+      p {
+        font-family: Montserrat, sans-serif;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 24.38px;
+        color: $white;
+      }
+    }
+    .main__btns {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+  }
+}
