@@ -1,0 +1,32 @@
+@import "../../styles/globalVariables.scss";
+.cart {
+  .cart__wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .cart__none {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    .none__title {
+      h1 {
+        text-align: center;
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 29.26px;
+        font-family: Montserrat, sans-serif;
+        color: $gray;   
+        margin-bottom: 15px;
+      }
+    }
+    .none__btn {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+}

@@ -6,17 +6,17 @@ import NewsSlider from "../components/NewsSlider/NewsSlider";
 import CompanyBlock from "../components/CompanyBlock/CompanyBlock";
 import Contact from "../components/Contact/Contact";
 import Footer from "../components/Footer/Footer";
-const HomePage = () => {
+const HomePage = ({ handleFavoriteClick }) => {
   return (
-    <div>
+    <>
       <Header />
       <Main />
-      <PopularCategories/>
-      <NewsSlider/>
-      <CompanyBlock/>
-      <Contact/>
-      <Footer/>
-    </div>
+      <PopularCategories />
+      <NewsSlider handleFavoriteClick={handleFavoriteClick} />
+      <CompanyBlock />
+      <Contact />
+      <Footer />
+    </>
   );
 };
 

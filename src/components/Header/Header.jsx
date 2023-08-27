@@ -6,21 +6,29 @@ import cart from "../../assets/Header/cart.svg";
 import favorites from "../../assets/Header/favorites.svg";
 
 const Header = () => {
+
   const renderLinks = useMemo(
     () => headerLinks.map((link) => <Link to={link.path}>{link.link}</Link>),
-    [headerLinks]
+    []
   );
+  
   return (
     <div className={scss.header}>
       <div className="container">
         <div className={scss.header__wrapper}>
           <div className={scss.header__logo}>
+            <Link to={'/'}>
             <h1>Mono</h1>
+            </Link>
           </div>
           <div className={scss.header__links}>{renderLinks}</div>
           <div className={scss.header__items}>
-            <img src={cart} alt="cart" />
-            <img src={favorites} alt="favorites" />
+            <Link to={"/cart"}>
+              <img src={cart} alt="cart" />
+            </Link>
+            <Link to={"/favorites"}>
+              <img src={favorites} alt="favorites" />
+            </Link>
           </div>
         </div>
       </div>

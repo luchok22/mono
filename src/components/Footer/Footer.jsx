@@ -1,6 +1,5 @@
 import React, { useMemo } from "react";
 import scss from "./Footer.module.scss";
-import ReusableComponents from "../ReusableComponent/ReusableComponent";
 import {
   aboutArr,
   contactsArr,
@@ -9,6 +8,7 @@ import {
   shopArr,
 } from "../../constants/footer";
 const Footer = () => {
+
   const renderAbout = useMemo(
     () =>
       aboutArr.map((el) => (
@@ -16,12 +16,12 @@ const Footer = () => {
           <div className={scss.desc__title}>{el.title}</div>
           <div className={scss.desc__description}>
             {el.desc.map((descItem, index) => (
-              <a key={index}>{descItem}</a>
+              <a href="/" /* eslint-disable jsx-a11y/anchor-is-valid */ key={index}>{descItem}</a>
             ))}
           </div>
         </div>
       )),
-    [aboutArr]
+    []
   );
   const renderShop = useMemo(
     () =>
@@ -30,12 +30,12 @@ const Footer = () => {
           <div className={scss.desc__title}>{el.title}</div>
           <div className={scss.desc__description}>
             {el.desc.map((descItem, index) => (
-              <a key={index}>{descItem}</a>
+              <a href="/" key={index}>{descItem}</a>
             ))}
           </div>
         </div>
       )),
-    [shopArr]
+    []
   );
   const renderDelivery = useMemo(
     () =>
@@ -44,16 +44,16 @@ const Footer = () => {
           <div className={scss.desc__title}>{el.title}</div>
           <div className={scss.desc__description}>
             {el.desc.map((descItem, index) => (
-              <a key={index}>{descItem}</a>
+              <a href="/" key={index}>{descItem}</a>
             ))}
           </div>
         </div>
       )),
-    [deliveryArr]
+    []
   );
   const renderIcons = useMemo(
     () => icons.map((icon) => <img src={icon} alt="icon" width={20} height={20} />),
-    [icons]
+    []
   );
   const renderContacts = useMemo(
     () =>
@@ -62,14 +62,15 @@ const Footer = () => {
           <div className={scss.desc__title}>{el.title}</div>
           <div className={scss.desc__description}>
             {el.desc.map((descItem, index) => (
-              <a key={index}>{descItem}</a>
+              <a href="/" /* eslint-disable jsx-a11y/anchor-is-valid */ key={index}>{descItem}</a>
             ))}
             <div className={scss.desc__icons}>{renderIcons}</div>
           </div>
         </div>
       )),
-    [contactsArr]
+    [renderIcons]
   );
+  
   return (
     <div className={scss.footer}>
       <div className="container">

@@ -7,7 +7,7 @@ import backImg from "../../assets/CompanyBlock/background.jpg";
 const CompanyBlock = () => {
   const renderCard = useMemo(
     () => companyCard.map((card) => <CompanyCard {...card} />),
-    [companyCard]
+    []
   );
   return (
     <div className={scss.company}>
