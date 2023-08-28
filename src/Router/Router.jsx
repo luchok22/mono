@@ -3,6 +3,8 @@ import { Route, Routes } from "react-router-dom";
 import FavoritesPage from "../pages/FavoritesPage";
 import HomePage from "../pages/HomePage";
 import CartPage from "../pages/CartPage";
+import CatalogPage from "../pages/CatalogPage";
+import CardDetailPage from "../pages/CardDetailPage";
 
 const Router = () => {
   const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || []; // Загружаем избранное из localStorage (если есть)
@@ -26,7 +28,6 @@ const Router = () => {
       setCart([...cart, { ...item, quantity: 1 }]);
     }
   };
-
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart)); // Сохраняем избранное в localStorage при каждом изменении
     localStorage.setItem("favorites", JSON.stringify(favorites)); // Сохраняем избранное в localStorage при каждом изменении
@@ -50,7 +51,18 @@ const Router = () => {
         />
         <Route
           path="/cart"
-          element={<CartPage cart={cart} setCart={setCart} />}
+          element={
+            <CartPage
+              cart={cart}
+              handleCartClick={handleCartClick}
+              setCart={setCart}
+            />
+          }
+        />
+        <Route path="/catalog" element={<CatalogPage />} />
+        <Route
+          path="/card/:id"
+          element={<CardDetailPage handleCartClick={handleCartClick} />}
         />
       </Routes>
     </>

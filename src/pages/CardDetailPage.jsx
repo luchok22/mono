@@ -1,16 +1,16 @@
 import React from 'react';
 import Header from '../components/Header/Header';
-import Cart from '../components/Cart/Cart';
+import CardDetail from '../components/CardDetail/CardDetail';
 import Footer from '../components/Footer/Footer';
 
-const CartPage = ({cart, setCart, handleCartClick}) => {
+const CardDetailPage = ({ handleCartClick}) => {
     return (
         <>
           <Header/>
-          <Cart cart={cart} handleCartClick={handleCartClick} setCart={setCart}/>
+          <CardDetail handleCartClick={ handleCartClick}/>
           <Footer/>  
         </>
     );
 };
 
-export default CartPage;
+export default CardDetailPage;

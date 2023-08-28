@@ -1,0 +1,78 @@
+@import "../../styles/globalVariables.scss";
+.card {
+    padding: 40px 0px;
+  .card__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    .card__img {
+      width: 100%;
+      height: 100%;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .card__about {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+      h1 {
+        font-size: 27px;
+        font-weight: 600;
+        font-family: Montserrat, sans-serif;
+        line-height: 32.91px;
+        color: $backDark;
+      }
+      p {
+        font-size: 20px;
+        font-weight: 500;
+        font-family: Montserrat, sans-serif;
+        line-height: 24.38px;
+        color: $backDark;
+      }
+      span {
+        font-size: 24px;
+        font-weight: 500;
+        font-family: Montserrat, sans-serif;
+        line-height: 29.26px;
+        color: $black;
+      }
+      .card__feature {
+        h1 {
+          font-size: 20px;
+          font-weight: 400;
+          font-family: Montserrat, sans-serif;
+          line-height: 24.38px;
+          color: $gray;
+        }
+        .feature__wrapper {
+          display: grid;
+          padding-top: 15px;
+          grid-template-columns: repeat(2, 1fr);
+          row-gap: 35px;
+        }
+        .feature {
+          display: flex;
+          align-items: center;
+          gap:10px;
+          h1 {
+            font-size: 16px;
+            font-weight: 500;
+            font-family: Montserrat, sans-serif;
+            line-height: 19.5px;
+            color: #555555;
+          }
+          p {
+            font-size: 16px;
+            font-weight: 500;
+            font-family: Montserrat, sans-serif;
+            line-height: 19.5px;
+            color: #777777;
+          }
+        }
+      }
+    }
+  }
+}

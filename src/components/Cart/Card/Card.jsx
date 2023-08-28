@@ -1,18 +1,22 @@
 import React from "react";
 import scss from "./Card.module.scss";
-const Card = ({ img, title, id, price, quantity, handleRemove,  }) => {
-  const product = {img, title, id, price}
+import { Link } from "react-router-dom";
+const Card = ({ img, title, id, price, quantity, handleRemove, handleCartClick }) => {
+  const product = { img, title, id, price };
   return (
     <div className={scss.card}>
-      <div className={scss.card__desc}>
-        <img src={img} alt={title} />
-        <h1>{title}</h1>
-        <div className={scss.desc__aq}>
-          <p>{price}$</p>
-          {quantity && <p>x{quantity}</p>}
+      <Link to={`/card/${id}`}>
+        <div className={scss.card__desc}>
+          <img src={img} alt={title} />
+          <h1>{title}</h1>
+          <div className={scss.desc__aq}>
+            <p>{price}$</p>
+            {quantity && <p>x{quantity}</p>}
+          </div>
         </div>
-      </div>
+      </Link>
       <div className={scss.card__btn}>
+      <button onClick={() => handleCartClick(product)}>Добавить</button>
         <button onClick={() => handleRemove(product)}>Удалить</button>
       </div>
     </div>

@@ -1,0 +1,55 @@
+@import '../../../styles/globalVariables.scss';
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  gap: 8px;
+  border: 1px solid gray;
+  padding: 15px;
+  cursor: pointer;
+  position: relative; /* Добавьте относительное позиционирование */
+
+
+  h1 {
+    font-size: 20px;
+    color: $backDark;
+    font-weight: 400;
+    font-family: Montserrat, sans-serif;
+    line-height: 24.38px;
+  }
+
+  p {
+    color: $backDark;
+    font-size: 24px;
+    font-weight: 500;
+    font-family: Montserrat, sans-serif;
+    line-height: 29.26px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .card__desc {
+    position: absolute;
+    top: -100%; /* Расположите всплывающее окно выше верхней границы родителя */
+    left: 0;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.7); /* Прозрачный белый фон */
+    opacity: 0;
+    transform: translateY(0); /* Начальное смещение */
+    transition: opacity 0.3s ease, top 0.3s ease; /* Анимация */
+    z-index: 1;
+  }
+
+  &:hover .card__desc {
+    top: 0; /* Плавное появление сверху */
+    opacity: 1;
+  }
+
+
+}
