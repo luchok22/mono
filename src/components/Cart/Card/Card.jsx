@@ -7,7 +7,7 @@ const Card = ({ img, title, id, price, quantity, handleRemove, handleCartClick }
     <div className={scss.card}>
       <Link to={`/card/${id}`}>
         <div className={scss.card__desc}>
-          <img src={img} alt={title} />
+          <img src={img} alt={title}  width={250} height={200}/>
           <h1>{title}</h1>
           <div className={scss.desc__aq}>
             <p>{price}$</p>

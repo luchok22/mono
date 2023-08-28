@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import scss from "./Cart.module.scss";
 import ReusableComponents from "../ReusableComponent/ReusableComponent";
-import { Link } from "react-router-dom";
 import Button from "../Button/Button";
 import Card from "./Card/Card";
+import { Link } from "react-router-dom";
 
 const Cart = ({ cart, setCart, handleCartClick }) => {
   const handleRemove = (item) => {
@@ -72,7 +72,19 @@ const Cart = ({ cart, setCart, handleCartClick }) => {
             </div>
           </div>
         ) : (
-          <div className={scss.cart__none}>{/* ... (остальной код) ... */}</div>
+          <div className={scss.cart__none}>
+            <div className={scss.none__title}>
+              <h1>Корзина пока пуста</h1>
+            </div>
+            <div className={scss.none__btn}>
+              <Link to={'/catalog'}>
+            <Button title={'Пополнить корзину'}/>
+              </Link>
+              <Link to={'/favorites'}>
+              <Button title={'Перейти в избранное'}/>
+              </Link>
+            </div>
+          </div>
         )}
       </ReusableComponents>
     </div>
