@@ -27,7 +27,6 @@ const Cart = ({ cart, setCart, handleCartClick }) => {
   const handleShowProducts = () => {
     setShowProducts(!showProducts);
   };
-
   return (
     <div className={scss.cart}>
       <ReusableComponents title={"Корзина"}>

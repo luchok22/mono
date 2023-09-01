@@ -6,6 +6,7 @@ import Button from "../Button/Button";
 import { Link } from "react-router-dom";
 
 const Favorites = ({ favorites, setFavorites, handleCartClick }) => {
+ 
   const handleRemove = (id) => {
     const arr = favorites.filter((item) => item.id !== id);
     setFavorites(arr);

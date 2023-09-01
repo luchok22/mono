@@ -7,14 +7,14 @@ import CompanyBlock from "../components/CompanyBlock/CompanyBlock";
 import Contact from "../components/Contact/Contact";
 import Footer from "../components/Footer/Footer";
 const HomePage = ({ handleFavoriteClick }) => {
-  return (
+   return (
     <>
       <Header />
       <Main />
       <PopularCategories />
-      <NewsSlider handleFavoriteClick={handleFavoriteClick} />
+      <NewsSlider  handleFavoriteClick={handleFavoriteClick} />
       <CompanyBlock />
-      <Contact />
+      <Contact /> 
       <Footer />
     </>
   );

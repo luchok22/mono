@@ -1,4 +1,4 @@
-@import '../../../styles/globalVariables.scss';
+@import "../../../styles/globalVariables.scss";
 .card {
   display: flex;
   flex-direction: column;
@@ -9,7 +9,6 @@
   padding: 15px;
   cursor: pointer;
   position: relative; /* Добавьте относительное позиционирование */
-
 
   h1 {
     font-size: 20px;
@@ -44,12 +43,13 @@
     transform: translateY(0); /* Начальное смещение */
     transition: opacity 0.3s ease, top 0.3s ease; /* Анимация */
     z-index: 1;
+    p {
+      font-size: 17px;
+    }
   }
 
   &:hover .card__desc {
     top: 0; /* Плавное появление сверху */
     opacity: 1;
   }
-
-
 }

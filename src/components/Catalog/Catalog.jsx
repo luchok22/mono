@@ -1,12 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import scss from "./Catalog.module.scss";
 import Navbar from "../Navbar/Navbar";
 import { navbar } from "../../constants/catalog";
 import search from "../../assets/Catalog/search.svg";
-import { newsArr } from "../../constants/newsSlider";
 import CatalogCard from "./CatalogCard/CatalogCard";
+import useCatalog from "../../hooks/useCatalog";
+import SimpleLoader from "../SimpleLoader/SimpleLoader";
+import useCatalogLinks from "../../hooks/useCatalogLinks";
 const Catalog = () => {
   const [selectedType, setSelectedType] = useState(null);
+  const { catalog, getCatalog, isLoading } = useCatalog();
+  const { catalogLinks, getCatalogLinks } = useCatalogLinks();
+
+  getCatalogLinks();
+  getCatalog();
+  
+  if (isLoading) return <SimpleLoader />;
   return (
     <div className={scss.catalog}>
       <div className="container">
@@ -19,15 +28,18 @@ const Catalog = () => {
             </div>
           </div>
         </div>
-        <Navbar links={navbar} onLinkClick={(type) => setSelectedType(type)} />
+        <Navbar
+          links={catalogLinks}
+          onLinkClick={(type) => setSelectedType(type)}
+        />
         <div className={scss.catalog__wrapper}>
-          {newsArr
-            .filter(
+          {catalog
+            ?.filter(
               (product) =>
                 selectedType === null || product.type === selectedType
             )
             .map((product) => (
-                <CatalogCard {...product} key={product.id} />
+              <CatalogCard {...product} key={product.id} />
             ))}
         </div>
       </div>

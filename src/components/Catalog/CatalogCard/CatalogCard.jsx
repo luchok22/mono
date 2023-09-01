@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import scss from "./CatalogCard.module.scss";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 
-const CatalogCard = ({ img, id, title, price, desc }) => {
+const CatalogCard = ({ img, tid, title, price, desc }) => {
   const [isHovered, setIsHovered] = useState(false);
-
   return (
-    <Link to={`/card/${id}`}>
+    <Link to={`/catalog/${tid}`}>
       <div
         className={scss.card}
         onMouseEnter={() => setIsHovered(true)}

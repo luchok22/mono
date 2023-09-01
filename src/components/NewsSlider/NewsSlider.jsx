@@ -1,10 +1,14 @@
 import React, { useMemo } from "react";
 import scss from "./NewsSlider.module.scss";
 import Slider from "react-slick";
-import { newsArr } from "../../constants/newsSlider";
 import Card from "../Card/Card";
 import ReusableComponents from "../ReusableComponent/ReusableComponent";
+import useNews from "../../hooks/useNews";
 const NewsSlider = ({ handleFavoriteClick }) => {
+  const { news, getNews } = useNews();
+  
+  getNews();
+
   const settings = {
     dots: false,
     infinite: false,
@@ -41,18 +45,20 @@ const NewsSlider = ({ handleFavoriteClick }) => {
       },
     ],
   };
-  const renderCards = useMemo(
-    () =>
-      newsArr.map((product) => (
-        <Card handleFavoriteClick={handleFavoriteClick} key={product.id} {...product} />
-      )),
-    [handleFavoriteClick]
-  );
+  
   return (
     <div className={scss.news} id="news">
       <ReusableComponents title={"Новинки"} line={true}>
         <div className={scss.news__slider}>
-          <Slider {...settings}>{renderCards}</Slider>
+          <Slider {...settings}>
+            {news.map((product) => (
+              <Card
+                handleFavoriteClick={handleFavoriteClick}
+                key={product.tid}
+                {...product}
+              />
+            ))}
+          </Slider>
         </div>
       </ReusableComponents>
     </div>
