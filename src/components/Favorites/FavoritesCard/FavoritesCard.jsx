@@ -11,8 +11,8 @@ const FavoritesCard = ({
 }) => {
   const product = { img, title, tid, price };
   return (
-    <Link to={`/news/${tid}`}>
       <div className={scss.card}>
+    <Link to={`/news/${tid}`}>
         <div className={scss.card__desc}>
           <img src={img} alt={title} />
           <h1>{title}</h1>
@@ -20,12 +20,12 @@ const FavoritesCard = ({
             <p>{price}$</p>
           </div>
         </div>
+    </Link>
         <div className={scss.card__btn}>
           <button onClick={() => handleCartClick(product)}>В корзину</button>
           <button onClick={() => handleRemove(tid)}>Удалить</button>
         </div>
       </div>
-    </Link>
   );
 };
 

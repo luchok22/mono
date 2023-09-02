@@ -6,6 +6,11 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      @include breackpoint(md){
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+      }
       h1 {
         font-size: 40px;
         font-weight: 600;
@@ -13,12 +18,19 @@
         line-height: 48.76px;
         width: fit-content;
         white-space: nowrap;
+        @include breackpoint(md){
+          font-size: 21px;
+          line-height: 21px;
+        }
     }
       .line {
         margin-left: 25px;
         width: 100%;
         height: 2px;
         background-color: $black;
+        @include breackpoint(md){
+          margin-left: 0
+        }
       }
     }
   }

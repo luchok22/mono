@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import scss from "./Catalog.module.scss";
 import Navbar from "../Navbar/Navbar";
-import { navbar } from "../../constants/catalog";
 import search from "../../assets/Catalog/search.svg";
 import CatalogCard from "./CatalogCard/CatalogCard";
 import useCatalog from "../../hooks/useCatalog";

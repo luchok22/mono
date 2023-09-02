@@ -10,12 +10,19 @@
   width: fit-content;
   background-size: cover;
   height: 100%;
+  @include breackpoint(md){
+    padding: 25px 15px;
+  }
   p {
     font-size: 20px;
     font-family: Montserrat, sans-serif;
     font-weight: 400;
     line-height: 24.38px;
     color: $white !important;
+    @include breackpoint(md){
+      line-height: 20.72px;
+      font-size: 17px;
+    }
   }
 }
 .card__light {
@@ -25,12 +32,19 @@
   gap: 15px;
   padding: 30px;
   display: flex;
+  @include breackpoint(md){
+    padding: 25px 15px;
+  }
   p {
     font-size: 20px;
     font-family: Montserrat, sans-serif;
     font-weight: 400;
     line-height: 24.38px;
     color: $black;
+    @include breackpoint(md){
+      line-height: 20.72px;
+      font-size: 17px;
+    }
   }
   
 }

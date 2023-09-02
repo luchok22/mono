@@ -4,6 +4,20 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+    @include breackpoint(md) {
+      gap: 15px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include breackpoint(sm) {
+      gap: 10px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breackpoint(xm) {
+      gap: 15px;
+      grid-template-columns: 1fr;
+    }
   }
   .favorites__none {
     display: flex;

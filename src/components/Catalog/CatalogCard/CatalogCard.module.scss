@@ -33,23 +33,26 @@
 
   .card__desc {
     position: absolute;
-    top: -100%; /* Расположите всплывающее окно выше верхней границы родителя */
+    top: -100%; 
     left: 0;
     height: 100%;
-    width: 100%;
+    max-width: 100%;
     padding: 10px;
-    background-color: rgba(255, 255, 255, 0.7); /* Прозрачный белый фон */
+    background-color: rgba(255, 255, 255, 0.7);
     opacity: 0;
-    transform: translateY(0); /* Начальное смещение */
-    transition: opacity 0.3s ease, top 0.3s ease; /* Анимация */
+    transform: translateY(0); 
+    transition: opacity 0.3s ease, top 0.3s ease; 
     z-index: 1;
     p {
-      font-size: 17px;
+      font-size: 19px;
+      line-height: 21.5px;
+      font-family: Monsterrat, sans-serif;
+      font-weight: 500;
     }
   }
 
   &:hover .card__desc {
-    top: 0; /* Плавное появление сверху */
+    top: 0;
     opacity: 1;
   }
 }

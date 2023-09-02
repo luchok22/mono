@@ -39,6 +39,7 @@ const Router = () => {
     }
     toast.success("Товар добавлен в корзину!");
   };
+
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart)); // Сохраняем избранное в localStorage при каждом изменении
     localStorage.setItem("favorites", JSON.stringify(favorites)); // Сохраняем избранное в localStorage при каждом изменении

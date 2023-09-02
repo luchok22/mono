@@ -1,4 +1,4 @@
-@import '../../styles/globalVariables.scss';
+@import "../../styles/globalVariables.scss";
 .header {
   background: $backDark;
   padding: 22px 0px;
@@ -18,6 +18,9 @@
     .header__links {
       display: flex;
       gap: 15px;
+      @include breackpoint(md) {
+        display: none;
+      }
       a {
         font-family: "Montserrat", sans-serif;
         font-size: 16px;
@@ -26,9 +29,81 @@
         color: #ffffff;
       }
     }
-    .header__items{
+    .header__items {
+      display: flex;
+      gap: 15px;
+      .burger__menu {
+        display: none;
+        @include breackpoint(md) {
+          display: block;
+        }
+      }
+      .burger__icons {
         display: flex;
-        gap: 15px;
+        align-items: center;
+        justify-content: space-evenly;
+        img {
+          cursor: pointer;
+        }
+      }
+      .menuWrapper {
+        @include breackpoint(xs) {
+          width: 200px;
+        }
+        display: flex;
+        gap: 25px;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: -320px;
+        width: 320px;
+        height: 100%;
+        background-color: #333;
+        padding: 20px;
+        border-radius: 0 0 0 4px;
+        color: #fff;
+        transition: right 0.3s ease;
+        z-index: 1;
+        a {
+          font-family: "Montserrat", sans-serif;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 19.5px;
+          color: #ffffff;
+          position: relative;
+        }
+
+        a::after {
+          content: "";
+          position: absolute;
+          bottom: -5px;
+          left: 0;
+          width: 100%;
+          height: 1px;
+          background-color: white;
+          transform-origin: left;
+          transition: transform 0.3s ease;
+          transform: scaleX(1);
+        }
+      }
+
+      .menuOpen {
+        right: 0;
+      }
+      .backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 0;
+        display: none;
+        transition: 0.3s ease;
+      }
+      .visible {
+        display: block;
+      }
     }
   }
 }

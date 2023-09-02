@@ -5,8 +5,16 @@
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
+  @include breackpoint(sm){
+    background-image: url('../../assets/Main/mainBackAdaptive.jpg');
+  background-position: bottom;
+
+  }
   .main__wrapper {
     padding-top: 150px;
+    @include breackpoint(md){
+      padding-top: 60px;
+    }
     display: flex;
     flex-direction: column;
     gap: 25px;
@@ -14,17 +22,28 @@
       display: flex;
       flex-direction: column;
       gap: 25px;
-        .line{
-            height: 1px;
-            background: $white;
-            width: 60%;
+      @include breackpoint(md) {
+        gap: 15px;
+      }
+      .line {
+        height: 1px;
+        background: $white;
+        width: 60%;
+        @include breackpoint(md) {
+          width: 100%;
         }
+      }
       h1 {
         font-family: Montserrat, sans-serif;
         font-weight: 600;
         font-size: 50px;
         line-height: 60.95px;
         color: $white;
+        @include breackpoint(md) {
+          font-weight: 600;
+          font-size: 28px;
+          line-height: 31.14px;
+        }
       }
       p {
         font-family: Montserrat, sans-serif;
@@ -32,12 +51,21 @@
         font-size: 20px;
         line-height: 24.38px;
         color: $white;
+        @include breackpoint(md) {
+          font-weight: 400;
+          font-size: 17px;
+          line-height: 20.72px;
+        }
       }
     }
     .main__btns {
       display: flex;
       align-items: center;
       gap: 15px;
+      @include breackpoint(md) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   }
 }

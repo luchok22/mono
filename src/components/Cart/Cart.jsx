@@ -17,9 +17,11 @@ const Cart = ({ cart, setCart, handleCartClick }) => {
   };
 
   const totalPrice = cart.reduce(
-    (total, item) => total + item.price * item.quantity,
+    (total, item) =>
+      total + parseFloat(item.price.replace(/\s/g, "")) * item.quantity,
     0
   );
+
   const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
 
   const [showProducts, setShowProducts] = useState(false);
@@ -65,8 +67,7 @@ const Cart = ({ cart, setCart, handleCartClick }) => {
                 )}
               </div>
               <div className={scss.price__btn}>
-              <Button title={'Заказать'} variable={true}/>
-
+                <Button title={"Заказать"} variable={true} />
               </div>
             </div>
           </div>
@@ -76,11 +77,11 @@ const Cart = ({ cart, setCart, handleCartClick }) => {
               <h1>Корзина пока пуста</h1>
             </div>
             <div className={scss.none__btn}>
-              <Link to={'/catalog'}>
-            <Button title={'Пополнить корзину'}/>
+              <Link to={"/catalog"}>
+                <Button title={"Пополнить корзину"} />
               </Link>
-              <Link to={'/favorites'}>
-              <Button title={'Перейти в избранное'}/>
+              <Link to={"/favorites"}>
+                <Button title={"Перейти в избранное"} />
               </Link>
             </div>
           </div>

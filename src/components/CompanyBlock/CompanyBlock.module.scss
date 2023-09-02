@@ -1,3 +1,4 @@
+@import '../../styles/globalVariables.scss';
 .company {
   .company__wrapper {
     display: flex;
@@ -6,11 +7,19 @@
     .wrapper__card {
       display: flex;
       gap: 10px;
+      width: 50%;
       flex-direction: column;
+      @include breackpoint(md){
+        width: 100%;
+      }
     }
     .company__background {
+      @include breackpoint(md){
+        display: none;
+      }
+      width: 50%;
       img {
-        width: 656px;
+        width: 100%;
         height: 394px;
       }
     }

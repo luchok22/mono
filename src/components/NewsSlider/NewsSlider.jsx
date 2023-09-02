@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React from "react";
 import scss from "./NewsSlider.module.scss";
 import Slider from "react-slick";
 import Card from "../Card/Card";
@@ -11,10 +11,10 @@ const NewsSlider = ({ handleFavoriteClick }) => {
 
   const settings = {
     dots: false,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 4.5,
-    slidesToScroll: 4.5,
+    infinite: true,
+    speed: 400,
+    slidesToShow: 4,
+    slidesToScroll: 4,
     initialSlide: 0,
     nextArrow: false,
     prevArrow: false,
@@ -29,7 +29,7 @@ const NewsSlider = ({ handleFavoriteClick }) => {
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 997,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,

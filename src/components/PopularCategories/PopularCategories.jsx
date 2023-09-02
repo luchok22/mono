@@ -16,7 +16,6 @@ const PopularCategories = () => {
   const renderNews = news.map((elem, index) => (
     <div key={index} className={scss.news}>
       <img src={elem.img} alt={elem.title} />
-
       <div>
         <h1>{elem.title}</h1>
         {elem.discount ? <h2>{elem.discount}%</h2> : ""}
@@ -28,11 +27,13 @@ const PopularCategories = () => {
 
   return (
     <article className={scss.PopularCategories}>
-      <ReusableComponents title={'Популярные категории'} line={true}>
-        <div className={scss.PopularCategories__categories}>
-          {renderCategories}
+      <ReusableComponents title={"Популярные категории"} line={true}>
+        <div className={scss.PopularCategories__wrapper}>
+          <div className={scss.PopularCategories__categories}>
+            {renderCategories}
+          </div>
+          <div className={scss.PopularCategories__news}>{renderNews}</div>
         </div>
-        <div className={scss.PopularCategories__news}>{renderNews}</div>
       </ReusableComponents>
     </article>
   );

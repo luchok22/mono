@@ -45,7 +45,7 @@ const Contact = () => {
  
   return (
     <div id="contact" className={scss.contact}>
-      <ReusableComponents title={"Остались вопросы?"}>
+      <ReusableComponents title={"Остались вопросы?"}>  
         <div className={scss.contact__wrapper}>
           <div className={scss.contact__form}>
             <div className={scss.form__title}>

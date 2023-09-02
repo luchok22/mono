@@ -18,7 +18,3 @@ export const companyCard = [
     btn: true,
   },
 ];
-//title,
-//   arrow,
-//   variableBtn,
-//   btn,

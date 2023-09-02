@@ -34,3 +34,10 @@ html {
   background-color: black;
 }
 
+
+@media (max-width: 997px){
+  .container{
+    width: 95%;
+    margin: 0 auto;
+  }
+}
