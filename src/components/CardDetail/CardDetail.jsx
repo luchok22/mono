@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import scss from "./CardDetail.module.scss";
 import Button from "../Button/Button";
 import { useParams } from "react-router-dom";
-
+import SimpleLoader from '../SimpleLoader/SimpleLoader'
 const CardDetail = ({ handleCartClick, arr, setArr, isLoading, error }) => {
   const { id } = useParams();
   useEffect(() => {
@@ -11,7 +11,7 @@ const CardDetail = ({ handleCartClick, arr, setArr, isLoading, error }) => {
     }
   }, [id, setArr]);
 
-  if (isLoading) return <h1>Загрузка</h1>;
+  if (isLoading) return <SimpleLoader/>;
   if (error) return <h1>{error}</h1>;
   return (
     <div className={scss.card}>

@@ -1,10 +1,14 @@
 @import "../../styles/globalVariables.scss";
 .card {
-    padding: 40px 0px;
+  padding: 40px 0px;
   .card__wrapper {
     display: flex;
     align-items: center;
     gap: 50px;
+    @include breackpoint(md) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
     .card__img {
       width: 100%;
       height: 100%;
@@ -15,15 +19,19 @@
       }
     }
     .card__about {
-        display: flex;
-        flex-direction: column;
-        gap: 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
       h1 {
         font-size: 27px;
         font-weight: 600;
         font-family: Montserrat, sans-serif;
         line-height: 32.91px;
         color: $backDark;
+        @include breackpoint(md) {
+          line-height: 29.26px;
+          font-size: 24px;
+        }
       }
       p {
         font-size: 20px;
@@ -31,6 +39,10 @@
         font-family: Montserrat, sans-serif;
         line-height: 24.38px;
         color: $backDark;
+        @include breackpoint(md) {
+          line-height: 19.5px;
+          font-size: 16px;
+        }
       }
       span {
         font-size: 24px;
@@ -46,23 +58,34 @@
           font-family: Montserrat, sans-serif;
           line-height: 24.38px;
           color: $gray;
+          @include breackpoint(md) {
+            font-size: 18px;
+            line-height: 21.94px;
+          }
         }
         .feature__wrapper {
           display: grid;
           padding-top: 15px;
           grid-template-columns: repeat(2, 1fr);
           row-gap: 35px;
+          @include breackpoint(md) {
+            gap: 10px;
+          }
         }
         .feature {
           display: flex;
           align-items: center;
-          gap:10px;
+          gap: 10px;
           h1 {
             font-size: 16px;
             font-weight: 500;
             font-family: Montserrat, sans-serif;
             line-height: 19.5px;
             color: #555555;
+            @include breackpoint(md) {
+              font-size: 14px;
+              line-height: 17.07px;
+            }
           }
           p {
             font-size: 16px;
@@ -70,6 +93,10 @@
             font-family: Montserrat, sans-serif;
             line-height: 19.5px;
             color: #777777;
+            @include breackpoint(md) {
+              font-size: 14px;
+              line-height: 17.07px;
+            }
           }
         }
       }

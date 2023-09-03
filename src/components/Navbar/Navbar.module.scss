@@ -1,25 +1,63 @@
+@import "../../styles/globalVariables.scss";
 .navbar {
   padding: 40px 0px;
   .navbar__wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @include breackpoint(md) {
+      display: none;
+    }
     .navbar__link {
       display: flex;
       align-items: center;
+      width: 100%;
+      height: 100%;
       flex-direction: column;
       gap: 10px;
       cursor: pointer;
       img {
-        width: 100%;
-        height: 100%;
+        width: 100px;
+        height: 100px;
       }
       p {
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 400;
         font-family: Montserrat, sans-serif;
         line-height: 19.5px;
         color: #222222;
+      }
+    }
+  }
+  .navbar__adaptive {
+    display: none;
+    background: $backDark;
+    width: fit-content;
+    padding: 10px;
+    @include breackpoint(md) {
+      display: block;
+    }
+    button {
+      border: none;
+      background: $backDark;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: 500;
+      line-height: 19.5px;
+      color: $gray;
+      font-family: Montserrat, sans-serif;
+      &:hover {
+        color: $white;
+      }
+    }
+    .adaptive__links {
+      p {
+        margin-top: 15px;
+        font-size: 14px;
+        font-weight: 400;
+        font-family: Montserrat, sans-serif;
+        line-height: 19.5px;
+        color: $white;
       }
     }
   }

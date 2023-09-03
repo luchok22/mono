@@ -20,6 +20,7 @@ html {
 }
 .slick-track {
   display: flex;
+  width: 100% !important;
   gap: 25px;
   padding: 0px 10px 10px 0px;
 }

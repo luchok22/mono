@@ -29,7 +29,7 @@ const Favorites = ({ favorites, setFavorites, handleCartClick }) => {
         ) : (
           <div className={scss.favorites__none}>
             <div className={scss.none__title}>
-              <h1>Избранное пока пусто</h1>
+              <h1>Избранное пока пуст</h1>
               <Link to={"/"}>
                 <Button title={"Пополнить избранное"} />
               </Link>

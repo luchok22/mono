@@ -6,6 +6,7 @@ import Card from "./Card/Card";
 import { Link } from "react-router-dom";
 
 const Cart = ({ cart, setCart, handleCartClick }) => {
+  const [showProducts, setShowProducts] = useState(false);
   const handleRemove = (item) => {
     const updatedCart = cart.map((cartItem) =>
       cartItem.id === item.id
@@ -24,7 +25,6 @@ const Cart = ({ cart, setCart, handleCartClick }) => {
 
   const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
 
-  const [showProducts, setShowProducts] = useState(false);
 
   const handleShowProducts = () => {
     setShowProducts(!showProducts);
