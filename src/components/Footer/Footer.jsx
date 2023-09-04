@@ -68,7 +68,7 @@ const Footer = () => {
           </div>
         </div>
       )),
-    [renderIcons]
+    []
   );
   
   return (
