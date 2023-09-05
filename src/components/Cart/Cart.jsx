@@ -17,11 +17,17 @@ const Cart = ({ cart, setCart, handleCartClick }) => {
     setCart(updatedCart.filter((item) => item.quantity > 0));
   };
 
-  const totalPrice = cart.reduce(
-    (total, item) =>
-      total + parseFloat(item.price.replace(/\s/g, "")) * item.quantity,
-    0
-  );
+  const totalPrice = cart.reduce((total, item) => {
+    if (typeof item.price === 'string') {
+      const priceWithoutSpaces = item.price.replace(/\s/g, "");
+      const itemTotal = parseFloat(priceWithoutSpaces) * item.quantity;
+      return total + itemTotal;
+    } else {
+      console.error("Invalid price format:", item.price);
+      return total;
+    }
+  }, 0);
+  
 
   const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
 

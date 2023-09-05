@@ -21,15 +21,15 @@ const Header = () => {
   };
 
   const renderLinks = useMemo(
-    () => headerLinks.map((link) => <Link to={link.path}>{link.link}</Link>),
+    () => headerLinks.map((link, index) => <Link key={index} to={link.path}>{link.link}</Link>),
     []
   );
   const renderBurgerLinks = useMemo(
-    () => headerLinks.map((link) => <Link to={link.path}>{link.link}</Link>),
+    () => headerLinks.map((link, index) => <Link key={index} to={link.path}>{link.link}</Link>),
     []
   );
   const renderIcons = useMemo(
-    () => icons.map((icon) =><img src={icon} alt="icon" width={20} height={20} />),
+    () => icons.map((icon, index) =><img src={icon} key={index} alt="icon" width={20} height={20} />),
     []
   );
   return (

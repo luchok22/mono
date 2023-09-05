@@ -11,8 +11,8 @@ const Footer = () => {
 
   const renderAbout = useMemo(
     () =>
-      aboutArr.map((el) => (
-        <div className={scss.desc}>
+      aboutArr.map((el, index) => (
+        <div className={scss.desc} key={index}>
           <div className={scss.desc__title}>{el.title}</div>
           <div className={scss.desc__description}>
             {el.desc.map((descItem, index) => (
@@ -25,8 +25,8 @@ const Footer = () => {
   );
   const renderShop = useMemo(
     () =>
-      shopArr.map((el) => (
-        <div className={scss.desc}>
+      shopArr.map((el, index) => (
+        <div className={scss.desc} key={index}>
           <div className={scss.desc__title}>{el.title}</div>
           <div className={scss.desc__description}>
             {el.desc.map((descItem, index) => (
@@ -39,8 +39,8 @@ const Footer = () => {
   );
   const renderDelivery = useMemo(
     () =>
-      deliveryArr.map((el) => (
-        <div className={scss.desc}>
+      deliveryArr.map((el, index) => (
+        <div className={scss.desc} key={index}>
           <div className={scss.desc__title}>{el.title}</div>
           <div className={scss.desc__description}>
             {el.desc.map((descItem, index) => (
@@ -52,13 +52,13 @@ const Footer = () => {
     []
   );
   const renderIcons = useMemo(
-    () => icons.map((icon) => <img src={icon} alt="icon" width={20} height={20} />),
+    () => icons.map((icon, index) => <img src={icon} key={index} alt="icon" width={20} height={20} />),
     []
   );
   const renderContacts = useMemo(
     () =>
-      contactsArr.map((el) => (
-        <div className={scss.desc}>
+      contactsArr.map((el, index) => (
+        <div className={scss.desc} key={index}>
           <div className={scss.desc__title}>{el.title}</div>
           <div className={scss.desc__description}>
             {el.desc.map((descItem, index) => (
