@@ -9,18 +9,18 @@ export const headerLinks = [
     },
     {
         link: 'О нас',
-        path: '/about'
+        path: '/'
     },
     {
         link: 'Контакты',
-        path: '/contacts'
+        path: '/'
     },
     {
         link: 'Оплата',
-        path: '/payment'
+        path: '/'
     },
     {
         link: 'Размещение',
-        path: '/accommodation'
+        path: '/'
     }
 ]

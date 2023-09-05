@@ -5,7 +5,7 @@ const Card = ({ img, title, price, id, handleFavoriteClick }) => {
   const product = { img, title, price, id };
   return (
     <div className={scss.card}>
-      <Link to={`/card/${id}`}>
+      <Link to={`/news/${id}`}>
         <div className={scss.card__desc}>
           <img src={img} alt={title} width={328} height={338} />
           <h1>{title}</h1>
