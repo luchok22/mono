@@ -10,11 +10,10 @@ import { ToastContainer, toast } from "react-toastify";
 import NewsDetailPage from "../pages/NewsDetailPage";
 
 const Router = () => {
-  const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || []; // Загружаем избранное из localStorage (если есть)
+  const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
   const [favorites, setFavorites] = useState(storedFavorites);
-  const storedCart = JSON.parse(localStorage.getItem("cart")) || []; // Загружаем избранное из localStorage (если есть)
+  const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
   const [cart, setCart] = useState(storedCart);
-
 
   const handleFavoriteClick = (item) => {
     if (favorites.some((favoriteItem) => favoriteItem.id === item.id)) {
@@ -25,7 +24,7 @@ const Router = () => {
   };
 
   const toastConfig = {
-    autoClose: 3000, // 3 секунды
+    autoClose: 3000,
     hideProgressBar: true,
   };
   const handleCartClick = (item) => {
@@ -34,15 +33,20 @@ const Router = () => {
       const updatedCart = [...cart];
       updatedCart[itemIndex].quantity += 1;
       setCart(updatedCart);
+      toast.success(
+        `Товар ${item.name} добавлен в корзину! (x${updatedCart[itemIndex].quantity})`
+      );
     } else {
-      setCart([...cart, { ...item, quantity: 1 }]);
+      const updatedCart = [...cart, { ...item, quantity: 1 }];
+      setCart(updatedCart);
+      toast.success("Товар добавлен в корзину!");
     }
-    toast.success("Товар добавлен в корзину!");
   };
+
   useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart)); // Сохраняем избранное в localStorage при каждом изменении
-    localStorage.setItem("favorites", JSON.stringify(favorites)); // Сохраняем избранное в localStorage при каждом изменении
-  }, []);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [cart, favorites]);
   return (
     <>
       <Routes>

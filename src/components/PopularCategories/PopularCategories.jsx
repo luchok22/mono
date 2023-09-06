@@ -3,15 +3,21 @@ import scss from "./PopularCategories.module.scss";
 import { categories, news } from "../../constants/popularCategories";
 import Button from "../Button/Button";
 import ReusableComponents from "../ReusableComponent/ReusableComponent";
+import { Link } from "react-router-dom";
 
 const PopularCategories = () => {
   const renderCategories = categories.map((elem, index) => (
-    <div key={index} className={`${scss[elem.name]} ${scss["category"]}`}>
+    <Link
+      key={index}
+      to={'/catalog'}
+      className={`${scss[elem.name]} ${scss["category"]}`}
+    >
       <img src={elem.img} alt={elem.name} />
       <div className={scss.background_dimming}></div>
       <h1>{elem.name}</h1>
-    </div>
+    </Link>
   ));
+  
 
   const renderNews = news.map((elem, index) => (
     <div key={index} className={scss.news}>

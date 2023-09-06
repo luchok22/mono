@@ -6,6 +6,7 @@ import CatalogCard from "./CatalogCard/CatalogCard";
 import useCatalog from "../../hooks/useCatalog";
 import SimpleLoader from "../SimpleLoader/SimpleLoader";
 import useCatalogLinks from "../../hooks/useCatalogLinks";
+
 const Catalog = () => {
   const [selectedType, setSelectedType] = useState(null);
   const { catalog, getCatalog, isLoading } = useCatalog();
@@ -13,7 +14,15 @@ const Catalog = () => {
 
   getCatalogLinks();
   getCatalog();
-  
+
+  const handleLinkClick = (type) => {
+    setSelectedType(type);
+  };
+
+  const handleResetClick = () => {
+    setSelectedType(null);
+  };
+
   if (isLoading) return <SimpleLoader />;
   return (
     <div className={scss.catalog}>
@@ -29,7 +38,9 @@ const Catalog = () => {
         </div>
         <Navbar
           links={catalogLinks}
-          onLinkClick={(type) => setSelectedType(type)}
+          selectedType={selectedType}
+          onLinkClick={handleLinkClick}
+          onResetClick={handleResetClick}
         />
         <div className={scss.catalog__wrapper}>
           {catalog

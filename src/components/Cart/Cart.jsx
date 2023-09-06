@@ -27,7 +27,7 @@ const Cart = ({ cart, setCart, handleCartClick }) => {
       return total;
     }
   }, 0);
-  
+  console.log(cart)
 
   const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
 

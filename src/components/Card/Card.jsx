@@ -1,11 +1,11 @@
 import React from "react";
 import scss from "./Card.module.scss";
 import { Link } from "react-router-dom";
-const Card = ({ img, title, price, id, handleFavoriteClick }) => {
-  const product = { img, title, price, id };
+const Card = ({ img, title, price, tid, handleFavoriteClick }) => {
+  const product = { img, title, price, tid };
   return (
     <div className={scss.card}>
-      <Link to={`/news/${id}`}>
+      <Link to={`/news/${tid}`}>
         <div className={scss.card__desc}>
           <img src={img} alt={title} width={328} height={338} />
           <h1>{title}</h1>
