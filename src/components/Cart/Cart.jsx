@@ -8,14 +8,25 @@ import { Link } from "react-router-dom";
 const Cart = ({ cart, setCart, handleCartClick }) => {
   const [showProducts, setShowProducts] = useState(false);
   const handleRemove = (item) => {
-    const updatedCart = cart.map((cartItem) =>
-      cartItem.id === item.id
-        ? { ...cartItem, quantity: cartItem.quantity - 1 }
-        : cartItem
-    );
-
-    setCart(updatedCart.filter((item) => item.quantity > 0));
+    setCart((prevCart) => {
+      const itemIndex = prevCart.findIndex((cartItem) => cartItem.id === item.id);
+  
+      if (itemIndex !== -1) {
+        const updatedCart = [...prevCart];
+        updatedCart[itemIndex].quantity -= 1;
+  
+        if (updatedCart[itemIndex].quantity <= 0) {
+          updatedCart.splice(itemIndex, 1); // Удаляем товар из корзины, если его количество меньше или равно 0
+        }
+  
+        return updatedCart;
+      }
+  
+      return prevCart; // Если элемент не найден, возвращаем исходную корзину
+    });
   };
+  
+  
 
   const totalPrice = cart.reduce((total, item) => {
     if (typeof item.price === 'string') {
@@ -41,12 +52,12 @@ const Cart = ({ cart, setCart, handleCartClick }) => {
         {cart.length ? (
           <div className={scss.card__prices}>
             <div className={scss.cart__wrapper}>
-              {cart.map((item) => (
+              {cart.map((item, index) => (
                 <Card
                   handleRemove={handleRemove}
                   handleCartClick={handleCartClick}
                   {...item}
-                  key={item.id}
+                  key={index}
                 />
               ))}
             </div>
@@ -57,7 +68,7 @@ const Cart = ({ cart, setCart, handleCartClick }) => {
               </div>
               <div className={scss.price__products}>
                 <p>Товары</p>
-                <p>{totalQuantity}</p>
+                <p>{totalQuantity}шт</p>
               </div>
               <div className={scss.price__items}>
                 <div>

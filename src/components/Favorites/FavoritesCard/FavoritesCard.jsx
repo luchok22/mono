@@ -23,7 +23,7 @@ const FavoritesCard = ({
     </Link>
         <div className={scss.card__btn}>
           <button onClick={() => handleCartClick(product)}>В корзину</button>
-          <button onClick={() => handleRemove(tid)}>Удалить</button>
+          <button onClick={() => handleRemove(product)}>Удалить</button>
         </div>
       </div>
   );

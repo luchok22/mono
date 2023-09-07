@@ -10,6 +10,7 @@ import useCatalogLinks from "../../hooks/useCatalogLinks";
 const Catalog = () => {
   const [selectedType, setSelectedType] = useState(null);
   const { catalog, getCatalog, isLoading } = useCatalog();
+  const [searchText, setSearchText] = useState("");
   const { catalogLinks, getCatalogLinks } = useCatalogLinks();
 
   getCatalogLinks();
@@ -19,10 +20,6 @@ const Catalog = () => {
     setSelectedType(type);
   };
 
-  const handleResetClick = () => {
-    setSelectedType(null);
-  };
-
   if (isLoading) return <SimpleLoader />;
   return (
     <div className={scss.catalog}>
@@ -30,7 +27,12 @@ const Catalog = () => {
         <div className={scss.catalog__title}>
           <h1>Каталог</h1>
           <div className={scss.catalog__input}>
-            <input type="text" placeholder="Поиск" />
+            <input
+              type="text"
+              placeholder="Поиск"
+              value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
+            />
             <div>
               <img src={search} alt="search" width={24} height={24} />
             </div>
@@ -40,13 +42,16 @@ const Catalog = () => {
           links={catalogLinks}
           selectedType={selectedType}
           onLinkClick={handleLinkClick}
-          onResetClick={handleResetClick}
         />
         <div className={scss.catalog__wrapper}>
           {catalog
             ?.filter(
               (product) =>
-                selectedType === null || product.type === selectedType
+                (selectedType === null || product.type === selectedType) &&
+                (searchText === "" ||
+                  product.title
+                    .toLowerCase()
+                    .includes(searchText.toLowerCase()))
             )
             .map((product) => (
               <CatalogCard {...product} key={product.id} />

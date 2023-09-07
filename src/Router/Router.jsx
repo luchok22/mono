@@ -10,43 +10,41 @@ import { ToastContainer, toast } from "react-toastify";
 import NewsDetailPage from "../pages/NewsDetailPage";
 
 const Router = () => {
-  const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
+  const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || []; // Загружаем избранное из localStorage (если есть)
   const [favorites, setFavorites] = useState(storedFavorites);
-  const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+  const storedCart = JSON.parse(localStorage.getItem("cart")) || []; // Загружаем избранное из localStorage (если есть)
   const [cart, setCart] = useState(storedCart);
 
   const handleFavoriteClick = (item) => {
-    if (favorites.some((favoriteItem) => favoriteItem.id === item.id)) {
-      return;
-    }
-    setFavorites([...favorites, item]);
-    toast.success("Товар добавлен в избранное!");
-  };
+    const isItemInFavorites = favorites.some(
+      (favoriteItem) => favoriteItem.tid === item.tid
+    );
 
-  const toastConfig = {
-    autoClose: 3000,
-    hideProgressBar: true,
+    if (!isItemInFavorites) {
+      setFavorites((prevFavorites) => [...prevFavorites, item]);
+      toast.success("Товар добавлен в избранное!"); 
+    }
   };
   const handleCartClick = (item) => {
-    const itemIndex = cart.findIndex((cartItem) => cartItem.id === item.id);
+    const itemIndex = cart.findIndex((cartItem) => cartItem.tid === item.tid);
     if (itemIndex !== -1) {
       const updatedCart = [...cart];
       updatedCart[itemIndex].quantity += 1;
       setCart(updatedCart);
-      toast.success(
-        `Товар ${item.name} добавлен в корзину! (x${updatedCart[itemIndex].quantity})`
-      );
     } else {
-      const updatedCart = [...cart, { ...item, quantity: 1 }];
-      setCart(updatedCart);
-      toast.success("Товар добавлен в корзину!");
+      setCart([...cart, { ...item, quantity: 1 }]);
     }
+    toast.success(`${item.title} добавлен в корзину!`);
   };
 
+  const toastConfig = {
+    autoClose: 3000, // 3 секунды
+    hideProgressBar: true,
+  };
   useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
-    localStorage.setItem("favorites", JSON.stringify(favorites));
-  }, [cart, favorites]);
+    localStorage.setItem("cart", JSON.stringify(cart)); // Сохраняем избранное в localStorage при каждом изменении
+    localStorage.setItem("favorites", JSON.stringify(favorites)); // Сохраняем избранное в localStorage при каждом изменении
+  }, [favorites, cart]);
   return (
     <>
       <Routes>

@@ -21,7 +21,6 @@ const Navbar = ({ links, selectedType, onLinkClick, onResetClick }) => {
             <p>{link.title}</p>
           </div>
         ))}
-        <button onClick={onResetClick}>Сбросить</button>
       </div>
       <div className={scss.navbar__adaptive}>
         <button onClick={handleShow}>Посмотреть</button>
@@ -35,7 +34,6 @@ const Navbar = ({ links, selectedType, onLinkClick, onResetClick }) => {
                 <p>{link.title}</p>
               </div>
             ))}
-          <button onClick={onResetClick}>Сбросить</button>
         </div>
       </div>
     </div>

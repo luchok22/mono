@@ -6,12 +6,11 @@ import Button from "../Button/Button";
 import { Link } from "react-router-dom";
 
 const Favorites = ({ favorites, setFavorites, handleCartClick }) => {
- 
-  const handleRemove = (id) => {
-    const arr = favorites.filter((item) => item.id !== id);
-    setFavorites(arr);
+  const handleRemove = (itemToRemove) => {
+    const updatedFavorites = favorites.filter((item) => item.id !== itemToRemove.id);
+    setFavorites(updatedFavorites);
   };
-
+  console.log(favorites)
   return (
     <div className={scss.favorites}>
       <ReusableComponents title={"Избранное"}>
